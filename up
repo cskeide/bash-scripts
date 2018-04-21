@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Default AUR helper
+aurhelper=/usr/bin/aurman
+
+# Source config file
+if [ -e /etc/up.conf ] 
+then 
+	. /etc/up.conf 
+fi
+
+# Upgrade
+if [ -e $aurhelper ] || [ -e /usr/bin/$aurhelper ]
+then
+	echo Using AUR helper $aurhelper
+	aurman -Syu
+else
+	echo AUR helper $aurhelper not found - using pacman
+	sudo pacman -Syu
+fi
