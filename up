@@ -12,9 +12,19 @@ fi
 # Upgrade
 if [ -e $aurhelper ] || [ -e /usr/bin/$aurhelper ]
 then
-	echo Using AUR helper $aurhelper
-	aurman -Syu
-else
+	if [ $USER == 'root' ]
+	then
+		pacman -Syu
+	else
+		echo Using AUR helper $aurhelper
+		aurman -Syu
+	fi
+else 
 	echo AUR helper $aurhelper not found - using pacman
-	sudo pacman -Syu
+	if [ $USER == 'root' ]
+	then
+		pacman -Syu
+	else
+		sudo pacman -Syu
+	fi
 fi
