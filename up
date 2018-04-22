@@ -15,7 +15,6 @@ if hash $aurhelper 2>/dev/null ; then
 	use_sudo=false
 fi
 
-
 if [ "$(whoami)" = "root" ] ; then
 	cmd=pacman
 	use_sudo=false
