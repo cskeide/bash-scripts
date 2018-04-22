@@ -1,27 +1,29 @@
 #!/bin/bash
 
-# Default AUR helper
+# Variables
 aurhelper=aurman
+cmd=pacman
+use_sudo=true
 
 # Source config file
 [[ -f /etc/up.conf ]] && . /etc/up.conf
 
-cmd=pacman
-use_sudo=true
-
-# Upgrade
+# Check if $aurhelper exists
 if hash $aurhelper 2>/dev/null ; then
 	cmd=$aurhelper
 	use_sudo=false
 fi
 
+# Check for root
 if [ "$(whoami)" = "root" ] ; then
 	cmd=pacman
 	use_sudo=false
 fi
 
+# Run as sudo
 if [ "$use_sudo" = true ] ; then
 	cmd="sudo $cmd"
 fi
 
+# Execute upgrade
 $cmd -Syu
