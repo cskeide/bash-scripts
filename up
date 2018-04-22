@@ -4,13 +4,10 @@
 aurhelper=/usr/bin/aurman
 
 # Source config file
-if [ -e /etc/up.conf ] 
-then 
-	. /etc/up.conf 
-fi
+[[ -f /etc/up.conf ]] && . /etc/up.conf
 
 # Upgrade
-if [ -e $aurhelper ] || [ -e /usr/bin/$aurhelper ]
+if hash $aurhelper 2>/dev/null
 then
 	if [ $USER == 'root' ]
 	then
