@@ -25,4 +25,4 @@ if [ "$use_sudo" = true ] ; then
 	cmd="sudo $cmd"
 fi
 
-echo $cmd -Syu
+$cmd -Syu
