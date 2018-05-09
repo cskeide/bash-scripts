@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Variables
+cmd=apt-get
+use_sudo=true
+
+# Check for root
+if [ "$(whoami)" = "root" ] ; then
+	use_sudo=false
+fi
+
+# Run as sudo
+if [ "$use_sudo" = true ] ; then
+	cmd="sudo $cmd"
+fi
+
+# Execute upgrade
+$cmd update && $cmd dist-upgrade

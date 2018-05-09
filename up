@@ -1,29 +1,17 @@
 #!/bin/bash
 
-# Variables
-aurhelper=aurman
-cmd=pacman
-use_sudo=true
-
-# Source config file
-[[ -f /etc/up.conf ]] && . /etc/up.conf
-
-# Check if $aurhelper exists
-if hash $aurhelper 2>/dev/null ; then
-	cmd=$aurhelper
-	use_sudo=false
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID_LIKE
+else
+    echo Could not find /etc/os-release
+    exit 1
 fi
 
-# Check for root
-if [ "$(whoami)" = "root" ] ; then
-	cmd=pacman
-	use_sudo=false
-fi
-
-# Run as sudo
-if [ "$use_sudo" = true ] ; then
-	cmd="sudo $cmd"
-fi
-
-# Execute upgrade
-$cmd -Syu
+if [ "$OS" = "archlinux" ]; then
+    ./up-arch
+elif [ "$OS" = "debian" ]; then
+    ./up-ubuntu
+else
+    echo Up does not support $OS
+fi 
