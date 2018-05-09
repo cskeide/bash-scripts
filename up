@@ -9,9 +9,9 @@ else
 fi
 
 if [ "$OS" = "archlinux" ]; then
-    ./up-arch
+    exec up-arch
 elif [ "$OS" = "debian" ]; then
-    ./up-ubuntu
+    exec up-ubuntu
 else
     echo Up does not support $OS
 fi 
