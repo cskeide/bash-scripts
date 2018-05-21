@@ -3,7 +3,7 @@
 # backup the etc directory!
 #
 cd /home/cskeide/Backup
-tar cJPf $(date +%F)-$(hostname)-etc-tar.xz /etc/
+sudo tar cJPf $(date +%F)-$(hostname)-etc-tar.xz /etc/
 
 # remove older backups
-find /home/cskeide/Backup -type f -name '*-etc-tar.xz' -mtime +90 -delete
+sudo find /home/cskeide/Backup -type f -name '*-etc-tar.xz' -mtime +90 -delete
