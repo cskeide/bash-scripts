@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /
+sudo mount /mnt/backup
+sudo rsync -aAXv --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=/data/backup/* --exclude=/data/vmware/* --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude="Downloads" --exclude=".local/share/Steam" --exclude=".ecryptfs" / /mnt/backup/sydney/sysbackup
+sudo umount /mnt/backup
