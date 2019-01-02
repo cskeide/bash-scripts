@@ -2,14 +2,16 @@
 
 if [ -f /etc/os-release ]; then
     . /etc/os-release
-    OS=$ID_LIKE
+    OS=$ID
 else
     echo Could not find /etc/os-release
     exit 1
 fi
 
-if [ "$OS" = "archlinux" ]; then
+if [ "$OS" = "arch" ]; then
     exec up-arch
+elif [ "$OS" = "ubuntu" ]; then
+    exec up-ubuntu
 elif [ "$OS" = "debian" ]; then
     exec up-ubuntu
 else
