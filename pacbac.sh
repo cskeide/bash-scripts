@@ -4,7 +4,7 @@
 # Package list locations (official and local)
 pkglsoff=~/arch-pkglist-official
 pkglsloc=~/arch-pkglist-local
-aurhelper=aurman
+aurhelper=yay
 
 # Use filename as program name
 prog=${0##*/}

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-cmd=apt-get
+cmd=apt
 use_sudo=true
 
 # Check for root
