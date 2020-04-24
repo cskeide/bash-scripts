@@ -14,6 +14,8 @@ elif [ "$OS" = "ubuntu" ]; then
     exec up-ubuntu
 elif [ "$OS" = "debian" ]; then
     exec up-ubuntu
+elif [ "$OS" = "pop" ]; then
+    exec up-ubuntu
 else
     echo Up does not support $OS
 fi 
