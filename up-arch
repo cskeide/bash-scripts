@@ -28,3 +28,9 @@ fi
 
 # Execute upgrade
 $cmd -Syu
+
+# Update flatpaks if available
+if command -v flatpak &> /dev/null ; then
+	flatpak update
+fi
+
