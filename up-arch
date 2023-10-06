@@ -31,6 +31,7 @@ $cmd -Syu
 
 # Update flatpaks if available
 if command -v flatpak &> /dev/null ; then
+	flatpak uninstall --unused
 	flatpak update
 fi
 
