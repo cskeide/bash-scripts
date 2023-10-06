@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# backup the etc directory!
+#
+mount /mnt/backup
+cd /mnt/backup/$(hostname)
+
+sudo tar --exclude='.cache' --exclude='flatpak' --exclude='lost+found' --exclude='.steam' -czvf home_cskeide.tar.gz /home/cskeide
+sudo tar --exclude='.cache' --exclude='flatpak' --exclude='lost+found' --exclude='.steam' -czvf home_ingrid.tar.gz /home/ingrid
