@@ -10,6 +10,8 @@ fi
 
 if [ "$OS" = "arch" ]; then
     exec up-arch
+elif [ "$OS" = "manjaro" ]; then
+    exec up-arch
 elif [ "$OS" = "ubuntu" ]; then
     exec up-ubuntu
 elif [ "$OS" = "debian" ]; then
